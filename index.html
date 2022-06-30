@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no" />
+        <link href="style.css" rel="stylesheet">
+        <title>在线日麻点数计算器</title>
+    </head>
+    <body>
+        <div id="content">
+            <div id = "input-div">
+                <div id="pai-select">
+                    <table id = "pai-select-table" class="nospace">
+
+                    </table>
+                </div>
+                <div class="flex-div">
+                    <button class="btn" onclick="clearAll()">清空 (Ctrl+C)</button>
+                    <button class="btn" onclick="myCalculate()" id="calculate-btn">计算！ (Ctrl+V)</button>
+                </div>
+                <div id="mode-select">
+                    <div class="flex-div">
+                        <fieldset>
+                            <legend>选择加入牌类型:</legend>
+                        
+                            <div>
+                            <input type="radio" id="pai" name="mode" value="pai" checked
+                                onclick="setMode(this.value)" accesskey="1">
+                            <label for="pai">手牌 (1)</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="chi" name="mode" value="chi"
+                                onclick="setMode(this.value)" accesskey="2">
+                            <label for="chi">吃 (2)</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="pon" name="mode" value="pon"
+                                onclick="setMode(this.value)" accesskey="3">
+                            <label for="pon">碰 (3)</label>
+                            </div>
+
+                            <div>
+                            <input type="radio" id="kan" name="mode" value="kan"
+                                onclick="setMode(this.value)" accesskey="4">
+                            <label for="kan">明杠 (4)</label>
+                            </div>
+
+                            
+                            <div>
+                                <input type="radio" id="ankan" name="mode" value="ankan"
+                                onclick="setMode(this.value)" accesskey="5">
+                                <label for="ankan">暗杠 (5)</label>
+                            </div>
+
+                            
+                            <div>
+                                <input type="radio" id="dora" name="mode" value="dora"
+                                onclick="setMode(this.value)" accesskey="6">
+                                <label for="dora">宝牌指示牌 (6)</label>
+                            </div>
+
+                            
+                            <div>
+                                <input type="radio" id="ura" name="mode" value="ura"
+                                onclick="setMode(this.value)" accesskey="7">
+                                <label for="ura">里宝牌指示牌 (7)</label>
+                            </div>
+                        </fieldset>
+                        
+                        <fieldset>
+                            <legend>和了方式:</legend>
+                        
+                            <div>
+                            <input type="radio" id="tsumo" name="agariWay" value="tsumo" checked
+                                onclick="setAgariWay(this.value)">
+                            <label for="tsumo">自摸</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="ron" name="agariWay" value="ron"
+                                onclick="setAgariWay(this.value)">
+                            <label for="ron">荣和</label>
+                            </div>
+                        
+                        </fieldset>
+                    </div>
+                    
+                    
+                    <div class="flex-div">
+                        <fieldset>
+                            <legend>场风:</legend>
+                        
+                            <div>
+                            <input type="radio" id="field-east" name="field" value="field-east" checked
+                                onclick="setField(this.value)">
+                            <label for="field-east">东</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="field-south" name="field" value="field-south"
+                                onclick="setField(this.value)">
+                            <label for="field-south">南</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="field-west" name="field" value="field-west"
+                                onclick="setField(this.value)">
+                            <label for="field-west">西</label>
+                            </div>
+
+                            <div>
+                            <input type="radio" id="field-north" name="field" value="field-north"
+                                onclick="setField(this.value)">
+                            <label for="field-north">北</label>
+                            </div>
+
+                            
+                        </fieldset>
+                        
+                        
+                        <fieldset>
+                            <legend>自风:</legend>
+                        
+                            <div>
+                            <input type="radio" id="seat-east" name="seat" value="seat-east" checked
+                                onclick="setSeat(this.value)">
+                            <label for="seat-east">东</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="seat-south" name="seat" value="seat-south"
+                                onclick="setSeat(this.value)">
+                            <label for="seat-south">南</label>
+                            </div>
+                        
+                            <div>
+                            <input type="radio" id="seat-west" name="seat" value="seat-west"
+                                onclick="setSeat(this.value)">
+                            <label for="seat-west">西</label>
+                            </div>
+
+                            <div>
+                            <input type="radio" id="seat-north" name="seat" value="seat-north"
+                                onclick="setSeat(this.value)">
+                            <label for="seat-north">北</label>
+                            </div>
+
+                            
+                        </fieldset>
+                    </div>
+
+                    <div class="flex-div">
+                        <div id="yaku-select">
+                            <div>
+                                <input type="checkbox" id="riichi" value="riichi" class="yaku-input">
+                                <label for="riichi">立直</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="double-riichi" value="double-riichi" class="yaku-input">
+                                <label for="double-riichi">双立直</label>
+                            </div>
+                            
+                            <div>
+                                <input type="checkbox" id="ippatsu" value="ippatsu" class="yaku-input">
+                                <label for="ippatsu">一发</label>
+                            </div>
+
+                            
+                            <div>
+                                <input type="checkbox" id="haite" value="haite" class="yaku-input">
+                                <label for="haite">海底捞月</label>
+                            </div>
+
+                            
+                            <div>
+                                <input type="checkbox" id="houte" value="houte" class="yaku-input">
+                                <label for="houte">河底摸鱼</label>
+                            </div>
+
+                            
+                            <div>
+                                <input type="checkbox" id="rinnshann" value="rinnshann" class="yaku-input">
+                                <label for="rinnshann">岭上开花</label>
+                            </div>
+
+                                
+                            <div>
+                                <input type="checkbox" id="chankan" value="chankan" class="yaku-input">
+                                <label for="chankan">抢杠</label>
+                            </div>
+
+                            
+                            <div>
+                                <input type="checkbox" id="tenhou" value="tenhou" class="yaku-input">
+                                <label for="tenhou">天和</label>
+                            </div>
+
+                            <div>
+                                <input type="checkbox" id="chiihou" value="chiihou" class="yaku-input">
+                                <label for="chiihou">地和</label>
+                            </div>
+                        </div>
+                        <div style="margin-top: 1em;">
+                            赤宝牌数量：
+                        </div>
+                        <input type="number" placeholder="不填为0" style="width:7em" id="aka-dora" min="0" value="0">
+                    </div>
+
+
+    
+                </div>
+                
+
+                <div id="ans">
+                    结果：
+
+                    <div class="number" id="number-div">
+                        0
+                    </div>
+                    役种列表：
+                    <ul id="yaku-list">
+                        <li>无</li>
+                    </ul>
+                    <div id="point-detail">
+                        0番 0符
+                    </div>
+                </div>
+                            
+
+            </div>
+
+
+            <div id="hand">
+                手牌（最后一张为和了牌）：
+                <div id="hand-row" class="box">
+
+                </div>
+            </div>
+
+            
+            <div id="furo">
+                副露：
+                <div id="furo-row" class="box">
+
+                </div>
+            </div>
+
+            <div class="indicator">       
+                <div id="dora">
+                    宝牌指示牌：
+                    <div id="dora-row" class="box">
+
+                    </div>
+                </div>
+
+                        
+                <div id="ura">
+                    里宝牌指示牌：
+                    <div id="ura-row" class="box">
+
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+        <footer>
+            <div>© 2022 Linlexiao 未经允许，不得转载</div>
+            <div>牌画素材来自<a target="_blank" href="http://wiki.lingshangkaihua.com/mediawiki/index.php/%E9%A6%96%E9%A1%B5">立直麻将百科</a></div>
+        </footer>
+    </body>
+
+    
+    <script src="calc.js"></script>
+    <script src="script.js"></script>
+</html>

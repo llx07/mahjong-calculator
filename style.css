@@ -1,0 +1,121 @@
+label,legend{
+    font-size: 1.25em;
+}
+
+input{
+    zoom:1.25;
+}
+
+.nospace,.nospace>tr>td{
+    border-spacing: 0;
+    padding: 0;
+    margin: 5px;
+}
+.pai{
+    height: 6.5em;
+    cursor:pointer;
+}
+.pai.horizontal{
+    width: 6.5em;
+    height: auto;
+}
+.pai.disabled{
+    cursor:not-allowed;
+}
+
+.disabled{
+    opacity: 0.5;
+}
+
+.btn{
+    height: 3em;
+    width: 17em;
+    margin: 0.5em;
+}
+
+#hand{
+    clear: both;
+}
+
+.furo{
+    display: inline-block;
+    cursor:pointer;
+}
+
+.box{
+    border: 2px dashed grey;
+    padding: 0.2em;
+    min-height:6.5em;
+    
+}
+
+.indicator{
+    display: flex;
+}
+.indicator>div{
+    flex:1 1 0;
+}
+.f-left{
+    float:left;
+}
+
+.number{
+    font-size: 4em;
+}
+#ans{
+    margin-left:25px;
+}
+
+
+footer {
+    position: fixed ;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 3.5em;/*脚部的高度*/
+    background: lightgrey;
+    clear:both;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+}
+
+#content{
+    padding-bottom: 3.5em;
+}
+
+#input-div{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#mode-select{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-div{
+    display: flex;
+    flex-direction: column ;
+}
+
+
+label,legend{
+    white-space: nowrap;
+}
+
+#ans{
+    border: 2px solid black;    
+    padding: 0.5em;
+    flex-grow: 1;
+}
+
+#point-detail{
+    font-size: larger;
+}
